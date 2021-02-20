@@ -1,23 +1,179 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane minHeight="720.0" minWidth="1280.0" prefHeight="950.0" prefWidth="1600.0" stylesheets="@MyTheme.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.view.layouts.RootLayoutController">
-    <top>
-        <AnchorPane fx:id="mainPane" prefHeight="57.0" prefWidth="1600.0" styleClass="progressiveLook" BorderPane.alignment="CENTER" />
-    </top>
-   <center>
-      <Button mnemonicParsing="false" onAction="#handleClick" text="Jeden" BorderPane.alignment="CENTER" />
-   </center>
-   <left>
-      <Button mnemonicParsing="false" text="Dwa" BorderPane.alignment="CENTER" />
-   </left>
-   <bottom>
-      <Button mnemonicParsing="false" text="Trzy" BorderPane.alignment="CENTER" />
-   </bottom>
-   <right>
-      <Button mnemonicParsing="false" text="Cztery" BorderPane.alignment="CENTER" />
-   </right>
+   <top>
+      <AnchorPane fx:id="mainPane" prefHeight="57.0" prefWidth="1600.0" styleClass="progressiveLook" BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar layoutY="3.0" prefHeight="25.0" prefWidth="1600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <menus>
+                <Menu fx:id="fileMenu" mnemonicParsing="false" text="Plik">
+                  <items>
+                    <MenuItem fx:id="closeMenuItem" mnemonicParsing="false" text="Zamknij" />
+                  </items>
+                </Menu>
+                  <Menu fx:id="optionsMenu" mnemonicParsing="false" text="Opcje">
+                    <items>
+                        <Menu fx:id="languageMenu" mnemonicParsing="false" text="Język">
+                           <items>
+                              <RadioMenuItem fx:id="polishRMI" mnemonicParsing="false" text="Polski" />
+                              <RadioMenuItem fx:id="englishRMI" mnemonicParsing="false" text="Angielski" />
+                           </items>
+                        </Menu>
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                      <MenuItem fx:id="settingsMenuItem" mnemonicParsing="false" text="Ustawienia" />
+                    </items>
+                  </Menu>
+                <Menu fx:id="helpMenu" mnemonicParsing="false" text="Pomoc">
+                  <items>
+                    <MenuItem fx:id="aboutMenuItem" mnemonicParsing="false" text="O programie" />
+                        <MenuItem fx:id="developersMenuItem" mnemonicParsing="false" text="Twórcy" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <GridPane layoutX="8.0" layoutY="23.0" prefHeight="34.0" prefWidth="1600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="934.0" minWidth="10.0" prefWidth="547.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1191.0" minWidth="10.0" prefWidth="1053.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <AnchorPane prefHeight="20.0" prefWidth="409.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="27.0" prefWidth="567.0" spacing="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="5.0">
+                           <children>
+                              <Label fx:id="settingsLabel" text="Ustawienia ">
+                                 <font>
+                                    <Font name="System Bold" size="10.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets right="5.0" />
+                                 </padding>
+                              </Label>
+                              <ImageView fitHeight="27.0" fitWidth="27.0" onMouseClicked="#handleSettingsClick" pickOnBounds="true" preserveRatio="true" styleClass="countryIcon">
+                                 <image>
+                                    <Image url="@images/country%20icons/Gear.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label fx:id="chooseYourLanguageLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="109.0" text="Wybierz język">
+                                 <font>
+                                    <Font name="System Bold" size="10.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets right="5.0" />
+                                 </padding>
+                              </Label>
+                              <ImageView fitHeight="27.0" fitWidth="27.0" onMouseClicked="#handlePOLClick" pickOnBounds="true" preserveRatio="true" styleClass="countryIcon">
+                                 <image>
+                                    <Image url="@images/country%20icons/Poland.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="27.0" fitWidth="27.0" onMouseClicked="#handleENGClick" pickOnBounds="true" preserveRatio="true" styleClass="countryIcon">
+                                 <image>
+                                    <Image url="@images/country%20icons/UK.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="27.0" fitWidth="27.0" onMouseClicked="#handleGERClick" pickOnBounds="true" preserveRatio="true" styleClass="countryIcon">
+                                 <image>
+                                    <Image url="@images/country%20icons/Germany.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="27.0" fitWidth="27.0" onMouseClicked="#handleESPClick" pickOnBounds="true" preserveRatio="true" styleClass="countryIcon">
+                                 <image>
+                                    <Image url="@images/country%20icons/Spain.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="adminPanelAccessLabel" prefHeight="15.0" prefWidth="69.0" text="Panel admina" visible="false">
+                                 <font>
+                                    <Font name="System Bold" size="10.0" />
+                                 </font>
+                              </Label>
+                              <HBox alignment="CENTER" fillHeight="false" prefHeight="25.0" prefWidth="25.0" spacing="10.0">
+                                 <children>
+                                    <ImageView fx:id="adminPanelAccessImage" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" styleClass="countryIcon">
+                                       <image>
+                                          <Image url="@images/admin%20panel.png" />
+                                       </image>
+                                       <viewport>
+                                          <Rectangle2D />
+                                       </viewport>
+                                    </ImageView>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="37.0" prefWidth="973.0" GridPane.columnIndex="1">
+                     <children>
+                        <HBox alignment="CENTER_RIGHT" layoutX="564.0" prefHeight="32.0" prefWidth="550.0" styleClass="hBoxUser" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0">
+                           <children>
+                              <Label fx:id="userLabel" alignment="TOP_RIGHT" prefHeight="17.0" prefWidth="335.0" text="............." textAlignment="RIGHT" textFill="#392ae1">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <padding>
+                                    <Insets right="30.0" />
+                                 </padding>
+                              </Label>
+                              <ImageView fx:id="userIcon" fitHeight="32.0" fitWidth="32.0" pickOnBounds="true">
+                                 <image>
+                                    <Image url="@images/user%20icon.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets right="15.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Button fx:id="myProfileButton" mnemonicParsing="false" onAction="#handleMyProfileClick" prefHeight="21.0" prefWidth="70.0" styleClass="userImage" text="Mój profil">
+                                 <HBox.margin>
+                                    <Insets left="10.0" right="10.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#handleLogoutClick" prefHeight="23.0" prefWidth="62.0" text="Wyloguj">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+         </children>
+      </AnchorPane>
+   </top>
 </BorderPane>
