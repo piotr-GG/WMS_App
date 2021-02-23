@@ -65,7 +65,7 @@ public class User {
         this.employee = employee;
     }
 
-    public ObjectProperty getUserImage() {
+    public ObjectProperty<Image> getUserImage() {
         if (this.userImage.get() != null) {
             return this.userImage;
         } else {
@@ -75,7 +75,7 @@ public class User {
         }
     }
 
-    public void setUserImage(Object userImage) {
+    public void setUserImage(Image userImage) {
         this.userImage.set(userImage);
     }
 

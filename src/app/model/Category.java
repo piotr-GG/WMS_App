@@ -65,11 +65,11 @@ public class Category {
         return categoryPhoto.get();
     }
 
-    public ObjectProperty categoryPhotoProperty() {
+    public ObjectProperty<Image> categoryPhotoProperty() {
         return categoryPhoto;
     }
 
-    public void setCategoryPhoto(Object categoryPhoto) {
+    public void setCategoryPhoto(Image categoryPhoto) {
         this.categoryPhoto.set(categoryPhoto);
     }
 

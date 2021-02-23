@@ -175,7 +175,7 @@ public class Delivery {
 
         public static String[] polishValues(){
             DeliveryStatus[] values = DeliveryStatus.values();
-            String[] polishValues = new String(values.length);
+            String[] polishValues = new String[values.length];
             for(int i = 0; i < values.length; i++){
                 polishValues[i] = values[i].getPolishVersion();
             }
@@ -189,6 +189,7 @@ public class Delivery {
                     return ds;
                 }
             }
+            return null;
         }
     }
 
